@@ -1,14 +1,11 @@
-<%- include('partials/header') %>
+<%- include("partials/header", { title: title }) %>
 
-    <section class="card-container">
-        <div class="card">
-            <h3>Local Food Bank</h3>
-            <p>Providing nutritional support to families in need.</p>
-        </div>
-        <div class="card">
-            <h3>Animal Rescue League</h3>
-            <p>Dedicated to the welfare of abandoned pets.</p>
-        </div>
-    </section>
+    <main>
+        <h2>Organizations</h2>
 
-    <%- include('partials/footer') %>
+        <img src="/images/org1.jpg" alt="Organization Image" width="300">
+
+        <p>We partner with local organizations to serve the community.</p>
+    </main>
+
+    <%- include("partials/footer") %>

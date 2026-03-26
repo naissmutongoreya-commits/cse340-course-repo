@@ -1,10 +1,14 @@
-<%- include('partials/header') %>
+<%- include("partials/header", { title: title }) %>
 
-    <section class="card-container">
-        <div class="card">Environmental</div>
-        <div class="card">Educational</div>
-        <div class="card">Community Service</div>
-        <div class="card">Health and Wellness</div>
-    </section>
+    <main>
+        <h2>Service Project Categories</h2>
 
-    <%- include('partials/footer') %>
+        <ul class="categories">
+            <li>Environmental</li>
+            <li>Educational</li>
+            <li>Community Service</li>
+            <li>Health and Wellness</li>
+        </ul>
+    </main>
+
+    <%- include("partials/footer") %>

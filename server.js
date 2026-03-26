@@ -1,31 +1,32 @@
-import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import 'dotenv/config';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import express from "express";
 
 const app = express();
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static('public'));
+// Static files
+app.use(express.static("public"));
 
-// Arrow function routes as required
-const getHome = (req, res) => res.render('index', { title: 'Home' });
-const getOrgs = (req, res) => res.render('organizations', { title: 'Organizations' });
-const getProjects = (req, res) => res.render('projects', { title: 'Service Projects' });
-const getCategories = (req, res) => res.render('categories', { title: 'Categories' });
+// View engine
+app.set("view engine", "ejs");
 
-app.get('/', getHome);
-app.get('/organizations', getOrgs);
-app.get('/projects', getProjects);
-app.get('/categories', getCategories);
-
-app.listen(port, () => {
-    console.log(`App listening on http://localhost:${port}`);
+// Routes
+app.get("/", (req, res) => {
+    res.render("home", { title: "Home" });
 });
 
+app.get("/organizations", (req, res) => {
+    res.render("organizations", { title: "Organizations" });
+});
 
+app.get("/projects", (req, res) => {
+    res.render("projects", { title: "Projects" });
+});
+
+app.get("/categories", (req, res) => {
+    res.render("categories", { title: "Categories" });
+});
+
+// Server start
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
